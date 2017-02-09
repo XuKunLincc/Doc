@@ -16,4 +16,7 @@
 <span style="color: red">W/libNodepad.so( 1868): (null):0 ((null)): Unhandled key code  271 !</span>
 
 只要我们把问题解决了，自然就能监听到其他的物理按键了。
-**判断：**QT的源码中对未知的key code进行了异常抛出
+**判断：**QT的源码中对未知的key code进行了异常抛出，分析QT对于event的源码，然后判断是哪里出了问题
+
+#####1、找Bug常用手法，通过异常抛出我们可以通过关键字在源码上查找   
+通过关键字**Unhandled key code**在源码路径上查找，找到抛出异常的地方在***/QTSrc/qtbase\src\plugins\platforms\android\androidjniinput.cpp***的函数***mapAndroidKey()***;
