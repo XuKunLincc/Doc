@@ -10,5 +10,6 @@
     static bool doNotify(QObject *receiver, QEvent *event)
     bool QCoreApplication::notify(QObject *receiver, QEvent *event){
           return receiver->isWidgetType() ? false : QCoreApplicationPrivate::notify_helper(receiver, event);
+          好像是判断是不是widget 如果不是就返回flase 那么这个就不是我们想要的
 }
     }

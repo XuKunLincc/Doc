@@ -20,3 +20,5 @@
 
 #####1、找Bug常用手法，通过异常抛出我们可以通过关键字在源码上查找   
 通过关键字**Unhandled key code**在源码路径上查找，找到抛出异常的地方在***/QTSrc/qtbase\src\plugins\platforms\android\androidjniinput.cpp***的函数***mapAndroidKey()***;
+
+通过分析，QT for Android的事件分发会从QTActivity的onKeyDown开始分发到QT系统中
