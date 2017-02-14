@@ -19,6 +19,12 @@
 **判断：**QT的源码中对未知的key code进行了异常抛出，分析QT对于event的源码，然后判断是哪里出了问题
 
 #####1、找Bug常用手法，通过异常抛出我们可以通过关键字在源码上查找   
-通过关键字**Unhandled key code**在源码路径上查找，找到抛出异常的地方在***/QTSrc/qtbase\src\plugins\platforms\android\androidjniinput.cpp***的函数***mapAndroidKey()***;
+    通过关键字**Unhandled key code**在源码路径上查找，找到抛出异常的地方在***/QTSrc/qtbase\src\plugins\platforms\android\androidjniinput.cpp***的函数***mapAndroidKey()***;
 
+    在mapAndroidKey()函数中。所有QT不认识的代码都将会被default掉，return 0
+    在QT中，**Qt** namespace中，其实是定义F13到F25的键值的。
+    所以，我们只要在mapAndroidKey()函数中加入下面两行代码即可
+    if(key >= 0x00000104 && key <= 0x00000110)
+            return Qt::Key_F13 + key - 0x00000104;
+    
 通过分析，QT for Android的事件分发会从QTActivity的onKeyDown开始分发到QT系统中

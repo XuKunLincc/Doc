@@ -3,3 +3,4 @@
 
  
     273行：Log.d("CKL","QT Activity onCreate");        
+
