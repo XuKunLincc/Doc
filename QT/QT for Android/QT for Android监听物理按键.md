@@ -28,3 +28,13 @@
             return Qt::Key_F13 + key - 0x00000104;
     
 通过分析，QT for Android的事件分发会从QTActivity的onKeyDown开始分发到QT系统中
+
+**3.实现监听示教器上的使能和钥匙事件**
+>示教器上的使能和钥匙其实现方式不同于按键事件,其实现是通过HAL层然后JNI访问，实现了一个Service来去调用
+
+**有三种方式可以实现**
+- 在QNative中获取服务，并将getval函数封装成JNI，供QT调用
+    + 首先编译我们自己的SDK，获取android.jar
+- 在C++层中直接获取服务并供QT调用
+- 直接略过Binder Service机制，直接调用HAL层的JNI函数
+>失败：因为JNI生成的库android_runtime.so中把对于的函数调用给隐藏了
