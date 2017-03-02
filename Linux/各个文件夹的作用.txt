@@ -1,0 +1,1 @@
+kernel_imx\drivers\of		和设备树相关的源码？

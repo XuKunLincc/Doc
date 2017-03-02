@@ -7,3 +7,6 @@
 
 ####二、编译前配置configure
 ./configure -prefix /usr/local/lib/qt4.8.6 -nomake examples -opengl desktop -platform linux-g++ -debug -opensource -nomake tests
+
+####三、编译
+执行make指令即可
