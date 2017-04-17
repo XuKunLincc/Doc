@@ -1,0 +1,12 @@
+Linux挂载U盘
+1，查看分区信息
+/proc/partitions
+
+2，首先找到U盘的设备文件
+fdisk -l /dev/sda*
+
+3, 挂载到某个文件
+mount -t U盘文件系统格式 /dev/sda* 挂载路径
+
+4， 取消挂载
+umount 挂载路径
