@@ -1,3 +1,3 @@
-关于实时系统的介绍：http://blog.csdn.net/zhourui1982/article/details/5282361
+鍏充簬瀹炴椂绯荤粺鐨勪粙缁嶏細http://blog.csdn.net/zhourui1982/article/details/5282361
 
-1，什么情况下我们的实时进程会有延时？
+1锛屼粈涔堟儏鍐典笅鎴戜滑鐨勫疄鏃惰繘绋嬩細鏈夊欢鏃讹紵
